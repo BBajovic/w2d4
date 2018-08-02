@@ -37,9 +37,23 @@ def sub_sum(list)
   end
 
   sums = subs.map do |arr|
-    byebug
     arr.reduce(&:+)
   end
 
   sums.max
+end
+
+def better_sub_sum(list)
+  max = list.first
+  current = list.first
+
+  return list.max if list.all?{ |el| el < 0}
+
+  (1...list.size).each do |i|
+    current = 0 if current < 0
+    current += list[i]
+    max = current if current > max
+  end
+  max
+
 end
