@@ -12,7 +12,6 @@ def my_min(list)
 end
 
 def n_class_min(list)
-
   list.reduce do |min, el|
     if el < min
       min = el
