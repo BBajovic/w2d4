@@ -24,3 +24,21 @@ def ok_two_sum(list, target)
   end
   false
 end
+
+def awesome_two_sum(list,target)
+  hash = Hash.new(0)
+
+  list.each do |el|
+    hash[el] += 1
+  end
+
+  list.each do |el|
+    look_for = target - el
+    if look_for == el
+      return true if hash[el] > 1
+    else
+      return true if hash.has_key?(look_for)
+    end
+  end
+  false
+end
